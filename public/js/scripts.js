@@ -1,23 +1,7 @@
-//const {response}  = require('express');
-//step2
-const cardList = [
-    {
-        title: "Kuala 2",
-        image: "images/kuala2.jpeg",
-        link: "About kuala 2",
-        desciption: "Demo desciption about kuala 2"
-    },
-    {
-        title: "Kuala 3",
-        image: "images/kuala3.jpeg",
-        link: "About Kuala 3",
-        desciption: "Demo desciption about kuala 3"
-    }
-]
 const clickMe = () => {
     alert("Thanks for clicking me. Hope you have a nice day!");
 }
-const submitForm = () => {
+/*const submitForm = () => {
     let formData = {};
     formData.first_name = $('#first_name').val();
     formData.last_name = $('#last_name').val();
@@ -25,22 +9,42 @@ const submitForm = () => {
     formData.email = $('#email').val();
 
     console.log("Form Data Submitted: ", formData);
+}*/
+const addProjectToApp = (project) => {
+    $.ajax({
+        url: '/api/projects',
+        data: project,
+        type: 'POST',
+        success: (result) => {
+            alert(result.message);
+            location.reload();
+        }
+    })
 }
-//step4
-/*
+
+
+const submitForm = () => {
+    let formData = {};
+    formData.title = $('#title').val();
+    formData.image = $('#image').val();
+    formData.link = $('#link').val();
+    formData.description = $('#description').val();
+
+    console.log("Form Data Submitted: ", formData);
+    addProjectToApp(formData);
+
+}
 const getProjects = () => {
-    $.get('/api/projects',(response) =>{
+    $.get('/api/projects',(response) => {
         if(response.statusCode==200){
-            console.log(response);
+            console.log(response)
             addCards(response.data);
         }
-        else{
+        else {
             console.log(response)
         }
-    }
-
-    )
-}*/
+    })
+}
 
 
 const addCards = (items) => {
@@ -67,9 +71,7 @@ $(document).ready(function(){
         submitForm();
     })
     //step6
-    //getProjects();
-    //step5
-    addCards(cardList);
+    getProjects();
     $('.modal').modal();
     
   });
