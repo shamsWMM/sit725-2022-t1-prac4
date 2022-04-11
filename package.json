@@ -1,0 +1,26 @@
+{
+  "name": "sit725-2022-t1-prac4",
+  "version": "1.0.0",
+  "description": "Practical 4 latest try",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shamsWMM/sit725-2022-t1-prac4.git"
+  },
+  "keywords": [
+    "Express",
+    "Database"
+  ],
+  "author": "shamsWMM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shamsWMM/sit725-2022-t1-prac4/issues"
+  },
+  "homepage": "https://github.com/shamsWMM/sit725-2022-t1-prac4#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
