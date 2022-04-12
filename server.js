@@ -1,3 +1,5 @@
+
+require('dotenv').config();
 const express = require('express')
 const app = express()
 const cors = require('cors');
@@ -7,7 +9,7 @@ let projectCollection;
 
 //adding a db connection
 // Database Connection
-const uri = "mongodb+srv://admin:admin@cluster0.ycgjk.mongodb.net/SIT725_2022_t1?retryWrites=true&w=majority";
+const uri = "mongodb+srv://"+process.env.MONGO_USER+":"+process.env.MONGO_PASSWORD+"@cluster0.ycgjk.mongodb.net/SIT725_2022_t1?retryWrites=true&w=majority";
 const client = new MongoClient(uri,{ useNewUrlParser: true })
 
 
